@@ -5,23 +5,14 @@
 //     element[i].className += " social";
 // }
 
-// bolds the subhead if there is no headline
-let subhead = document.getElementsByClassName("chart-subhead"),
-    headline = document.getElementById("chart-head");
-    if (!headline) {
-        for(var i = 0; i < subhead.length; i++) {
-            subhead[i].style.fontWeight = "600";
-        }       
-     }
-
 Highcharts.setOptions({
     lang: {
       thousandsSep: ','
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const myChart = Highcharts.chart('chart-container', {
+function drawHighcharts() {
+    Highcharts.chart('chart-container-credit-score-map' , {
         chart: {
             type: 'tilemap',
             inverted: true,
@@ -56,23 +47,28 @@ document.addEventListener('DOMContentLoaded', function () {
         colorAxis: {
             dataClasses: [{
                 from: 0,
-                to: 7.25,
+                to: 699,
                 color: '#f5f5f5',
-                name: '$7.25'
+                name: '<700'
             }, {
-                from: 7.26,
-                to: 9.99,
+                from: 700,
+                to: 709,
                 color: '#bceaa3',
-                name: '$7.26-$8.99'
+                name: '700-709'
             }, {
-                from: 10,
-                to: 11.99,
+                from: 710,
+                to: 719,
                 color: '#53b324',
-                name: '$9.00-$10.99'
+                name: '710-719'
             }, {
-                from: 12,
+                from: 720,
+                to: 729,
                 color: '#15A77B',
-                name: '$11.00+'
+                name: '720-729'
+            }, {
+                from: 730,
+                color: '#0E7C52',
+                name: '730+'
             }]
         },
         series: [{
@@ -83,377 +79,357 @@ document.addEventListener('DOMContentLoaded', function () {
                 region: 'South',
                 x: 6,
                 y: 7,
-                value: 7.25,
+                value: 687,
             }, {
                 'hc-a2': 'AK',
                 name: 'Alaska',
                 region: 'West',
                 x: 0,
                 y: 0,
-                value: 10.34,
-                className: 'new-wage'
+                value: 714,
             }, {
                 'hc-a2': 'AZ',
                 name: 'Arizona',
                 region: 'West',
                 x: 5,
                 y: 3,
-                value: 12.15,
-                className: 'new-wage'
+                value: 706,
             }, {
                 'hc-a2': 'AR',
                 name: 'Arkansas',
                 region: 'South',
                 x: 5,
                 y: 6,
-                value: 11,
-                className: 'new-wage'
+                value: 690,
             }, {
                 'hc-a2': 'CA',
                 name: 'California',
                 region: 'West',
                 x: 5,
                 y: 2,
-                value: 14,
-                className: 'new-wage'
+                value: 717,
             }, {
                 'hc-a2': 'CO',
                 name: 'Colorado',
                 region: 'West',
                 x: 4,
                 y: 3,
-                value: 12.32,
-                className: 'new-wage'
+                value: 725,
             }, {
                 'hc-a2': 'CT',
                 name: 'Connecticut',
                 region: 'Northeast',
                 x: 3,
                 y: 11,
-                value: 12
+                value: 723
             }, {
                 'hc-a2': 'DE',
                 name: 'Delaware',
                 region: 'South',
                 x: 4,
                 y: 9,
-                value: 9.25
+                value: 710
             }, {
                 'hc-a2': 'DC',
                 name: 'District of Columbia',
                 region: 'South',
                 x: 4,
                 y: 10,
-                value: 15
+                value: 713
             }, {
                 'hc-a2': 'FL',
                 name: 'Florida',
                 region: 'South',
                 x: 8,
                 y: 8,
-                value: 8.65,
-                className: 'new-wage'
+                value: 702
             }, {
                 'hc-a2': 'GA',
                 name: 'Georgia',
                 region: 'South',
                 x: 7,
                 y: 8,
-                value: 7.25
+                value: 689
             }, {
                 'hc-a2': 'HI',
                 name: 'Hawaii',
                 region: 'West',
                 x: 8,
                 y: 0,
-                value: 10.10
+                value: 727
             }, {
                 'hc-a2': 'ID',
                 name: 'Idaho',
                 region: 'West',
                 x: 3,
                 y: 2,
-                value: 7.25
+                value: 721
             }, {
                 'hc-a2': 'IL',
                 name: 'Illinois',
                 region: 'Midwest',
                 x: 3,
                 y: 6,
-                value: 11,
-                className: 'new-wage'
+                value: 716
             }, {
                 'hc-a2': 'IN',
                 name: 'Indiana',
                 region: 'Midwest',
                 x: 3,
                 y: 7,
-                value: 7.25
+                value: 708
             }, {
                 'hc-a2': 'IA',
                 name: 'Iowa',
                 region: 'Midwest',
                 x: 3,
                 y: 5,
-                value: 7.25
+                value: 726
             }, {
                 'hc-a2': 'KS',
                 name: 'Kansas',
                 region: 'Midwest',
                 x: 5,
                 y: 5,
-                value: 7.25
+                value: 718
             }, {
                 'hc-a2': 'KY',
                 name: 'Kentucky',
                 region: 'South',
                 x: 4,
                 y: 6,
-                value: 7.25
+                value: 699
             }, {
                 'hc-a2': 'LA',
                 name: 'Louisiana',
                 region: 'South',
                 x: 6,
                 y: 5,
-                value: 7.25
+                value: 685
             }, {
                 'hc-a2': 'ME',
                 name: 'Maine',
                 region: 'Northeast',
                 x: 0,
                 y: 11,
-                value: 12.15,
-                className: 'new-wage'
+                value: 722
             }, {
                 'hc-a2': 'MD',
                 name: 'Maryland',
                 region: 'South',
                 x: 4,
                 y: 8,
-                value: 11.75,
-                className: 'new-wage'
+                value: 713
             }, {
                 'hc-a2': 'MA',
                 name: 'Massachusetts',
                 region: 'Northeast',
                 x: 2,
                 y: 10,
-                value: 13.50,
-                className: 'new-wage'
+                value: 729
             }, {
                 'hc-a2': 'MI',
                 name: 'Michigan',
                 region: 'Midwest',
                 x: 2,
                 y: 7,
-                value: 9.65
+                value: 715
             }, {
                 'hc-a2': 'MN',
                 name: 'Minnesota',
                 region: 'Midwest',
                 x: 2,
                 y: 4,
-                value: 10.08,
-                className: 'new-wage'
+                value: 739
             }, {
                 'hc-a2': 'MS',
                 name: 'Mississippi',
                 region: 'South',
                 x: 6,
                 y: 6,
-                value: 7.25
+                value: 675
             }, {
                 'hc-a2': 'MO',
                 name: 'Missouri',
                 region: 'Midwest',
                 x: 4,
                 y: 5,
-                value: 10.30,
-                className: 'new-wage'
+                value: 707
             }, {
                 'hc-a2': 'MT',
                 name: 'Montana',
                 region: 'West',
                 x: 2,
                 y: 2,
-                value: 8.75,
-                className: 'new-wage'
+                value: 727
             }, {
                 'hc-a2': 'NE',
                 name: 'Nebraska',
                 region: 'Midwest',
                 x: 4,
                 y: 4,
-                value: 9
+                value: 728
             }, {
                 'hc-a2': 'NV',
                 name: 'Nevada',
                 region: 'West',
                 x: 4,
                 y: 2,
-                value: 9
+                value: 696
             }, {
                 'hc-a2': 'NH',
                 name: 'New Hampshire',
                 region: 'Northeast',
                 x: 1,
                 y: 11,
-                value: 7.25
+                value: 730
             }, {
                 'hc-a2': 'NJ',
                 name: 'New Jersey',
                 region: 'Northeast',
                 x: 3,
                 y: 10,
-                value: 12,
-                className: 'new-wage'
+                value: 721
             }, {
                 'hc-a2': 'NM',
                 name: 'New Mexico',
                 region: 'West',
                 x: 6,
                 y: 3,
-                value: 10.5,
-                className: 'new-wage'
+                value: 694
             }, {
                 'hc-a2': 'NY',
                 name: 'New York',
                 region: 'Northeast',
                 x: 2,
                 y: 9,
-                value: 12.50,
-                className: 'new-wage'
+                value: 719
             }, {
                 'hc-a2': 'NC',
                 name: 'North Carolina',
                 region: 'South',
                 x: 5,
                 y: 9,
-                value: 7.25
+                value: 704
             }, {
                 'hc-a2': 'ND',
                 name: 'North Dakota',
                 region: 'Midwest',
                 x: 2,
                 y: 3,
-                value: 7.25
+                value: 730
             }, {
                 'hc-a2': 'OH',
                 name: 'Ohio',
                 region: 'Midwest',
                 x: 3,
                 y: 8,
-                value: 8.80,
-                className: 'new-wage'
+                value: 712
             }, {
                 'hc-a2': 'OK',
                 name: 'Oklahoma',
                 region: 'South',
                 x: 6,
                 y: 4,
-                value: 7.25
+                value: 690
             }, {
                 'hc-a2': 'OR',
                 name: 'Oregon',
                 region: 'West',
                 x: 4,
                 y: 1,
-                value: 12
+                value: 727
             }, {
                 'hc-a2': 'PA',
                 name: 'Pennsylvania',
                 region: 'Northeast',
                 x: 3,
                 y: 9,
-                value: 7.25
+                value: 720
             }, {
                 'hc-a2': 'RI',
                 name: 'Rhode Island',
                 region: 'Northeast',
                 x: 2,
                 y: 11,
-                value: 11.50
+                value: 720
             }, {
                 'hc-a2': 'SC',
                 name: 'South Carolina',
                 region: 'South',
                 x: 6,
                 y: 8,
-                value: 7.25
+                value: 690
             }, {
                 'hc-a2': 'SD',
                 name: 'South Dakota',
                 region: 'Midwest',
                 x: 3,
                 y: 4,
-                value: 9.45,
-                className: 'new-wage'
+                value: 731
             }, {
                 'hc-a2': 'TN',
                 name: 'Tennessee',
                 region: 'South',
                 x: 5,
                 y: 7,
-                value: 7.25
+                value: 697
             }, {
                 'hc-a2': 'TX',
                 name: 'Texas',
                 region: 'South',
                 x: 7,
                 y: 4,
-                value: 7.25
+                value: 688
             }, {
                 'hc-a2': 'UT',
                 name: 'Utah',
                 region: 'West',
                 x: 5,
                 y: 4,
-                value: 7.25
+                value: 723
             }, {
                 'hc-a2': 'VT',
                 name: 'Vermont',
                 region: 'Northeast',
                 x: 1,
                 y: 10,
-                value: 11.75,
-                className: 'new-wage'
+                value: 732
             }, {
                 'hc-a2': 'VA',
                 name: 'Virginia',
                 region: 'South',
                 x: 5,
                 y: 8,
-                value: 7.25
+                value: 718
             }, {
                 'hc-a2': 'WA',
                 name: 'Washington',
                 region: 'West',
                 x: 2,
                 y: 1,
-                value: 13.69,
-                className: 'new-wage'
+                value: 731
             }, {
                 'hc-a2': 'WV',
                 name: 'West Virginia',
                 region: 'South',
                 x: 4,
                 y: 7,
-                value: 8.75
+                value: 695
             }, {
                 'hc-a2': 'WI',
                 name: 'Wisconsin',
                 region: 'Midwest',
                 x: 2,
                 y: 5,
-                value: 7.25
+                value: 732
             }, {
                 'hc-a2': 'WY',
                 name: 'Wyoming',
                 region: 'West',
                 x: 3,
                 y: 3,
-                value: 7.25
+                value: 719
             }]
         }],
         legend: {
@@ -468,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         tooltip: {
             headerFormat: '',
-            pointFormat: '{point.name}: $<b>{point.value:.2f}</b>',
+            pointFormat: '{point.name}: <b>{point.value:.0f}</b>',
             shadow: false,
             padding: 10
         },
@@ -489,9 +465,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 tooltip: {
                     enabled: false
                 }
-              }
+            }
             }]
         }
-    });
-});
+    })
+}
 
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    drawHighcharts();
+} else {
+    document.addEventListener("DOMContentLoaded", drawHighcharts);
+}

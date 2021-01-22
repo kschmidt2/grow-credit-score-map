@@ -22,7 +22,7 @@ $breakpoint-lg: 717px;
 
 @import "colors";
 
-.chart-area {
+.chart-area-credit-score-map {
   @import "type";
   @import "highcharts";
 
@@ -49,6 +49,7 @@ $breakpoint-lg: 717px;
     width: 100%;
     height: 350px;
     margin-top: -10px;
+    margin-bottom: -20px;
     @include sm-md-xl {
       height: 460px;
     }
